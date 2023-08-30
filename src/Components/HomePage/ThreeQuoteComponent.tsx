@@ -29,7 +29,7 @@ function ThreeCardDisplay() {
 
 
     useEffect(() => {
-        axios.get<Item[]>('https://serenitybackendsite.azurewebsites.net/Quotes/GetAllQuotes')
+        axios.get<Item[]>('https://serenityhealth.azurewebsites.net/Quotes/GetAllQuotes')
             .then(response => {
                 const shuffledItems = response.data.sort(() => Math.random() - 0.5);
                 const displayThree = shuffledItems.splice(0, 3);
@@ -41,7 +41,7 @@ function ThreeCardDisplay() {
 
     const handleFavoriteClick = (userId: number, quoteId: number) => {
         fetch(
-            `https://serenitybackendsite.azurewebsites.net/Quotes/FavoriteQuote?userId=${userId}&quoteId=${quoteId}`,
+            `https://serenityhealth.azurewebsites.net/Quotes/FavoriteQuote?userId=${userId}&quoteId=${quoteId}`,
             {
                 method: "POST",
                 headers: {
@@ -61,7 +61,7 @@ function ThreeCardDisplay() {
 
     const handleRemoveClick = (userId: number, quoteId: number) => {
         fetch(
-            `https://serenitybackendsite.azurewebsites.net/Quotes/RemoveFavoriteQuote?userId=${userId}&quoteId=${quoteId}`,
+            `https://serenityhealth.azurewebsites.net/Quotes/RemoveFavoriteQuote?userId=${userId}&quoteId=${quoteId}`,
             {
                 method: "POST",
                 headers: {

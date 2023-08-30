@@ -40,7 +40,7 @@ function ItemList() {
     }, [favorites]);
 
     useEffect(() => {
-        axios.get<Item[]>('https://serenitybackendsite.azurewebsites.net/Quotes/GetAllQuotes')
+        axios.get<Item[]>('https://serenityhealth.azurewebsites.net/Quotes/GetAllQuotes')
             .then(response => {
                 const shuffledItems = response.data.sort(() => Math.random() - 0.5);
                 setItems(shuffledItems);
@@ -51,7 +51,7 @@ function ItemList() {
 
     const handleFavoriteClick = (userInfo: number, quoteId: number) => {
         fetch(
-            `https://serenitybackendsite.azurewebsites.net/Quotes/FavoriteQuote?userId=${userInfo}&quoteId=${quoteId}`,
+            `https://serenityhealth.azurewebsites.net/Quotes/FavoriteQuote?userId=${userInfo}&quoteId=${quoteId}`,
             {
                 method: "POST",
                 headers: {
@@ -71,7 +71,7 @@ function ItemList() {
 
     const handleRemoveClick = (userInfo: number, quoteId: number) => {
         fetch(
-            `https://serenitybackendsite.azurewebsites.net/Quotes/RemoveFavoriteQuote?userId=${userInfo}&quoteId=${quoteId}`,
+            `https://serenityhealth.azurewebsites.net/Quotes/RemoveFavoriteQuote?userId=${userInfo}&quoteId=${quoteId}`,
             {
                 method: "POST",
                 headers: {
